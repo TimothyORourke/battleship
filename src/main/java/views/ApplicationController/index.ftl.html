@@ -1,0 +1,60 @@
+<#import "../layout/defaultLayout.ftl.html" as layout> 
+<@layout.myLayout "Battleship">
+
+<h1 class="title">The Battleship game</h1>
+
+<div id="game_area">
+    <div class="left-side third-of-page">
+        <div class="left-side-top">
+            <button id="dark_mode">Dark Mode</button>
+            <button id="rules_button">Rules</button>
+            <ul id="rules" class="hidden">
+                <li>Place one of each ship to start the game.</li>
+                <li>Guess the position of enemy ships by clicking on top half of board.</li>
+                <li>To sink a ship, hit all squares that the ship occupies.</li>
+                <li>Game ends when one player sinks all the other players' ships.</li>
+            </ul>
+            <ul id="color_codes" class="hidden">
+                <li>Color codes:</li>
+                <li><icon class="miss icon">&#9724</icon> MISS</li>
+                <li><icon class="hit icon">&#9724</icon> HIT</li>
+                <li><icon class="sink icon">&#9724</icon> SINK</li>
+                <li><icon class="occupied icon">&#9724</icon> PLACED</li>
+            </ul>
+        </div>
+
+        <div class="left-side-bottom">
+            <button id="new_game">New Game</button>
+        </div>
+    </div>
+
+    <div class="middle-side third-of-page">
+        <div id="status_bar">
+            <h2 id="message"></h2>
+        </div>
+        <table id="opponent" class="battleGrid">
+        </table>
+
+        <div id="boards_separator"></div>
+
+        <table id="player" class="battleGrid">
+        </table>
+    </div>
+
+    <div class="right-side third-of-page">
+        <div class="count">
+            REMAINING
+            <var id="numShipDisplay">3</var>
+        </div>
+    </div>
+</div>
+<ul class="hidden">
+    <li><input type="checkbox" id="is_vertical" value="Vertical"></li>
+</ul>
+
+<script type="text/javascript" src="/assets/game.js"></script>
+<script>
+    initGame();
+</script>
+
+</@layout.myLayout>
